@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Footer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    .footer-container {
+      margin: 16px;
+    }
+
+    .container,
+    .sub-items-container {
+      display: flex;
+      font-family: sans-serif;
+      font-size: 15px;
+    }
+
+    /*
+    .sub-items:hover {
+        border-bottom: 1px solid rgb(5, 119, 139);
+    }
+*/
+
+    .sub-items {
+      position: relative;
+    }
+
+    .sub-items:before {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background-color: #00AAA2;
+      visibility: hidden;
+
+      transition: all 0.3s ease-in-out;
+    }
+
+    .sub-items:hover:before {
+      visibility: visible;
+      width: 100%;
+    }
+
+    .container {
+      width: auto;
+      justify-content: space-between;
+      align-items: flex-start;
+      font-size: 20px;
+
+    }
+
+    .sub-items-container {
+      flex-direction: column;
+      align-items: center;
+      color: #00AAA2;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .header {
+      text-align: center
+    }
+
+    .item {
+      align-items: center;
+      color: #2C3E50;
+      font-family: serif;
+
+    }
+
+
+    #map {
+      height: 32vh;
+      margin: 16px 8px;
+    }
+
+    @media(max-width: 700px) {
+      .container {
+        margin: auto;
+        flex-direction: column;
+      }
+
+      .item {
+        margin: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="footer-container">
+
+    <div class="container">
+
+      <div class="item">
+        <div class="header">Get Started</div>
+        <br>
+        <div class="sub-items-container">
+          <div class="sub-items">Home</div>
+          <br>
+          <div class="sub-items">Login</div>
+          <br>
+          <div class="sub-items">Signup</div>
+          <br>
+          <div class="sub-items">Offers</div>
+
+        </div>
+      </div>
+      <br>
+      <div class="item">
+        <div class="header">About Us</div>
+        <br>
+        <div class="sub-items-container">
+          <div class="sub-items">Overview</div>
+          <br>
+          <div class="sub-items">Brands</div>
+          <br>
+          <div class="sub-items">Gallery</div>
+
+        </div>
+      </div>
+      <br>
+      <div class="item">
+        <div class="header">Support</div>
+        <br>
+        <div class="sub-items-container">
+          <div class="sub-items">FAQ</div>
+          <br>
+          <div class="sub-items">Contact Us</div>
+
+        </div>
+      </div>
+      <br>
+      <div class="item">
+        <div class="header">Products</div>
+        <br>
+        <div class="sub-items-container">
+          <div class="sub-items">Search Products</div>
+          <br>
+          <div class="sub-items">Services</div>
+
+        </div>
+      </div>
+      <br>
+      <div class="item">
+        <div class="header">Useful Links</div>
+        <br>
+        <div class="sub-items-container">
+          <div class="sub-items">My Account</div>
+          <br>
+          <div class="sub-items">My Orders</div>
+          <br>
+          <div class="sub-items">Start Shopping</div>
+          <br>
+          <div class="sub-items">Site Map</div>
+
+        </div>
+      </div>
+      <br>
+      <div class="item">
+        <div class="header">Legal</div>
+        <br>
+        <div class="sub-items-container">
+          <div class="sub-items">Privacy Policy</div>
+          <br>
+          <div class="sub-items">Terms & Condition</div>
+          <br>
+          <div class="sub-items">Copyright</div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="map-container">
+      <div id="map"></div>
+    </div>
+
+    <div class="copyright-container">
+      <p><i class="fa fa-copyright" aria-hidden="true"></i> Copyright 2020 <span style="font-style: italic;font-weight: bold;font-size: 18px;color: #00AAA2 ;">Company INC</span></p>
+    </div>
+  </div>
+
+
+  <script>
+    function initMap() {
+      // Styles a map in night mode.
+      var map = new google.maps.Map(document.getElementById('map'), {
+        center: {
+          lat: 40.674,
+          lng: -73.945
+        },
+        zoom: 12,
+        styles: [{
+            elementType: 'geometry',
+            stylers: [{
+              color: '#242f3e'
+            }]
+          },
+          {
+            elementType: 'labels.text.stroke',
+            stylers: [{
+              color: '#242f3e'
+            }]
+          },
+          {
+            elementType: 'labels.text.fill',
+            stylers: [{
+              color: '#746855'
+            }]
+          },
+          {
+            featureType: 'administrative.locality',
+            elementType: 'labels.text.fill',
+            stylers: [{
+              color: '#d59563'
+            }]
+          },
+          {
+            featureType: 'poi',
+            elementType: 'labels.text.fill',
+            stylers: [{
+              color: '#d59563'
+            }]
+          },
+          {
+            featureType: 'poi.park',
+            elementType: 'geometry',
+            stylers: [{
+              color: '#263c3f'
+            }]
+          },
+          {
+            featureType: 'poi.park',
+            elementType: 'labels.text.fill',
+            stylers: [{
+              color: '#6b9a76'
+            }]
+          },
+          {
+            featureType: 'road',
+            elementType: 'geometry',
+            stylers: [{
+              color: '#38414e'
+            }]
+          },
+          {
+            featureType: 'road',
+            elementType: 'geometry.stroke',
+            stylers: [{
+              color: '#212a37'
+            }]
+          },
+          {
+            featureType: 'road',
+            elementType: 'labels.text.fill',
+            stylers: [{
+              color: '#9ca5b3'
+            }]
+          },
+          {
+            featureType: 'road.highway',
+            elementType: 'geometry',
+            stylers: [{
+              color: '#746855'
+            }]
+          },
+          {
+            featureType: 'road.highway',
+            elementType: 'geometry.stroke',
+            stylers: [{
+              color: '#1f2835'
+            }]
+          },
+          {
+            featureType: 'road.highway',
+            elementType: 'labels.text.fill',
+            stylers: [{
+              color: '#f3d19c'
+            }]
+          },
+          {
+            featureType: 'transit',
+            elementType: 'geometry',
+            stylers: [{
+              color: '#2f3948'
+            }]
+          },
+          {
+            featureType: 'transit.station',
+            elementType: 'labels.text.fill',
+            stylers: [{
+              color: '#d59563'
+            }]
+          },
+          {
+            featureType: 'water',
+            elementType: 'geometry',
+            stylers: [{
+              color: '#17263c'
+            }]
+          },
+          {
+            featureType: 'water',
+            elementType: 'labels.text.fill',
+            stylers: [{
+              color: '#515c6d'
+            }]
+          },
+          {
+            featureType: 'water',
+            elementType: 'labels.text.stroke',
+            stylers: [{
+              color: '#17263c'
+            }]
+          }
+        ]
+      });
+    }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap" async defer></script>
+</body>
+
+</html>
